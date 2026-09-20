@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CinemaMax · movie tickets</title>
+  <!-- Google Fonts for a modern, clean look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0d15;
+      color: #ffffff;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ----- HEADER / NAV ----- */
+    header {
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+
+    .logo i {
+      color: #ff3b5c;
+      font-size: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+      color: #b0b3c6;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-actions i {
+      font-size: 1.3rem;
+      color: #b0b3c6;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .header-actions i:hover {
+      color: #ffffff;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ----- HERO SECTION ----- */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      padding: 60px 0 40px;
+    }
+
+    .hero-content {
+      flex: 1 1 400px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 59, 92, 0.15);
+      color: #ff3b5c;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(255, 59, 92, 0.3);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #ff3b5c, #ff8a5c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: #9a9db0;
+      font-size: 1.15rem;
+      max-width: 500px;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background: #ff3b5c;
+      border: none;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 20px rgba(255, 59, 92, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #e62e4e;
+      transform: scale(1.02);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-visual {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .poster-stack {
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      height: 380px;
+    }
+
+    .poster-card {
+      position: absolute;
+      width: 220px;
+      height: 330px;
+      border-radius: 24px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .poster-card:nth-child(1) {
+      background-image: linear-gradient(135deg, #1e1e2f, #2a2a40), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMSI+PHJlY3QgeD0iMiIgeT0iNCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE2IiByeD0iMiIgLz48cGF0aCBkPSJNOCA4aDh2OGwtNCA0LTQtNHoiIC8+PC9zdmc+');
+      background-blend-mode: overlay;
+      background-size: cover, 60px;
+      background-repeat: no-repeat;
+      background-position: center, center;
+      top: 0;
+      left: 0;
+      z-index: 3;
+      transform: rotate(-5deg);
+    }
+
+    .poster-card:nth-child(2) {
+      background-image: linear-gradient(135deg, #1f1a2e, #2f2540), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iMSI+PHBvbHlsaW5lIHBvaW50cz0iMTIgMiAyIDcgMTIgMTIgMjIgNyAxMiAyIiAvPjxwb2x5bGluZSBwb2ludHM9IjIgMTcgMTIgMjIgMjIgMTciIC8+PHBvbHlsaW5lIHBvaW50cz0iMiAxMiAxMiAxNyAyMiAxMiIgLz48L3N2Zz4=');
+      background-blend-mode: overlay;
+      background-size: cover, 60px;
+      background-repeat: no-repeat;
+      background-position: center, center;
+      top: 20px;
+      left: 70px;
+      z-index: 2;
+      transform: rotate(2deg);
+    }
+
+    .poster-card:nth-child(3) {
+      background-image: linear-gradient(135deg, #16212e, #1f2f3c), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIC8+PHBvbHlsaW5lIHBvaW50cz0iMTIgNiAxMiAxMiAxNiAxNCIgLz48L3N2Zz4=');
+      background-blend-mode: overlay;
+      background-size: cover, 60px;
+      background-repeat: no-repeat;
+      background-position: center, center;
+      top: 40px;
+      left: 140px;
+      z-index: 1;
+      transform: rotate(8deg);
+    }
+
+    /* ----- SECTION TITLE ----- */
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin: 60px 0 28px;
+    }
+
+    .section-title h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title a {
+      color: #ff3b5c;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .section-title a:hover {
+      gap: 10px;
+    }
+
+    /* ----- MOVIE GRID ----- */
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .movie-card {
+      background: #13161f;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+    }
+
+    .movie-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
+      border-color: rgba(255, 59, 92, 0.3);
+    }
+
+    .movie-poster {
+      aspect-ratio: 2 / 3;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 10px;
+    }
+
+    .movie-poster::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+    }
+
+    .movie-rating {
+      position: relative;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #ffb800;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .movie-info {
+      padding: 16px;
+    }
+
+    .movie-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .movie-info .genre {
+      color: #9a9db0;
+      font-size: 0.8rem;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .movie-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: #9a9db0;
+    }
+
+    .movie-meta .price {
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* ----- BOOKING CTA STRIP ----- */
+    .booking-strip {
+      background: linear-gradient(90deg, #13161f 0%, #1a1e2b 100%);
+      border-radius: 28px;
+      padding: 40px 48px;
+      margin: 40px 0 70px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .booking-strip h3 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .booking-strip p {
+      color: #9a9db0;
+      max-width: 450px;
+    }
+
+    .booking-strip .btn-primary {
+      padding: 16px 38px;
+      font-size: 1.05rem;
+      white-space: nowrap;
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 40px 0;
+      color: #9a9db0;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #9a9db0;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #ff3b5c;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      font-size: 1.2rem;
+    }
+
+    .social-icons i {
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .social-icons i:hover {
+      color: #ff3b5c;
+    }
+
+    /* responsive touches */
+    @media (max-width: 700px) {
+      .header-actions .btn-outline {
+        display: none;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        padding: 30px 0;
+      }
+      .booking-strip {
+        padding: 30px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+      .booking-strip .btn-primary {
+        width: 100%;
+        justify-content: center;
+      }
+      .section-title h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <i class="fas fa-film"></i> CinemaMax
+    </div>
+    <div class="nav-links">
+      <a href="#">Movies</a>
+      <a href="#">Cinemas</a>
+      <a href="#">Offers</a>
+      <a href="#">Support</a>
+    </div>
+    <div class="header-actions">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user-circle"></i>
+      <button class="btn-outline">Sign in</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-ticket-alt" style="margin-right: 6px;"></i> Now booking · Summer 2025
+      </div>
+      <h1>
+        Book your <span>movie night</span> in seconds.
+      </h1>
+      <p>
+        Skip the line. Choose your seats, grab tickets, and get instant confirmation — all from one place.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn-primary">
+          <i class="fas fa-ticket-alt"></i> Book tickets
+        </button>
+        <button class="btn-secondary">
+          <i class="fas fa-play-circle"></i> Watch trailer
+        </button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="poster-stack">
+        <div class="poster-card"></div>
+        <div class="poster-card"></div>
+        <div class="poster-card"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOW SHOWING SECTION -->
+  <div class="section-title">
+    <h2>Now showing</h2>
+    <a href="#">View all <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <div class="movie-grid">
+    <!-- movie 1 -->
+    <div class="movie-card">
+      <div class="movie-poster" style="background-image: linear-gradient(135deg, #1e2a3a, #0f1a28), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM0NDQiIHN0cm9rZS13aWR0aD0iMSI+PHBvbHlsaW5lIHBvaW50cz0iMTIgMiAyIDcgMTIgMTIgMjIgNyAxMiAyIiAvPjxwb2x5bGluZSBwb2ludHM9IjIgMTcgMTIgMjIgMjIgMTciIC8+PHBvbHlsaW5lIHBvaW50cz0iMiAxMiAxMiAxNyAyMiAxMiIgLz48L3N2Zz4='); background-blend-mode: overlay; background-size: cover, 60px; background-repeat: no-repeat; background-position: center;">
+        <span class="movie-rating"><i class="fas fa-star"></i> 8.7</span>
+      </div>
+      <div class="movie-info">
+        <h3>Dune: Part Three</h3>
+        <div class="genre">Sci-Fi · Adventure</div>
+        <div class="movie-meta">
+          <span>2h 45m</span>
+          <span class="price">$14.50</span>
+        </div>
+      </div>
+    </div>
+    <!-- movie 2 -->
+    <div class="movie-card">
+      <div class="movie-poster" style="background-image: linear-gradient(135deg, #2a1e2e, #1a101c), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMSI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIC8+PHBvbHlsaW5lIHBvaW50cz0iMTIgNiAxMiAxMiAxNiAxNCIgLz48L3N2Zz4='); background-blend-mode: overlay; background-size: cover, 60px; background-repeat: no-repeat; background-position: center;">
+        <span class="movie-rating"><i class="fas fa-star"></i> 9.1</span>
+      </div>
+      <div class="movie-info">
+        <h3>Oppenheimer</h3>
+        <div class="genre">Drama · History</div>
+        <div class="movie-meta">
+          <span>3h 0m</span>
+          <span class="price">$13.00</span>
+        </div>
+      </div>
+    </div>
+    <!-- movie 3 -->
+    <div class="movie-card">
+      <div class="movie-poster" style="background-image: linear-gradient(135deg, #1e2f2a, #0f1f1a), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM1NTUiIHN0cm9rZS13aWR0aD0iMSI+PHBhdGggZD0iTTEyIDJMMiA3bDEwIDUgMTAtNS0xMC01eiIgLz48cGF0aCBkPSJNMiAxN2wxMCA1IDEwLTUiIC8+PHBhdGggZD0iTTIgMTJsMTAgNSAxMC01IiAvPjwvc3ZnPg=='); background-blend-mode: overlay; background-size: cover, 60px; background-repeat: no-repeat; background-position: center;">
+        <span class="movie-rating"><i class="fas fa-star"></i> 8.2</span>
+      </div>
+      <div class="movie-info">
+        <h3>Spider-Man 4</h3>
+        <div class="genre">Action · Fantasy</div>
+        <div class="movie-meta">
+          <span>2h 15m</span>
+          <span class="price">$15.00</span>
+        </div>
+      </div>
+    </div>
+    <!-- movie 4 -->
+    <div class="movie-card">
+      <div class="movie-poster" style="background-image: linear-gradient(135deg, #2a1e1e, #1a1010), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM3NzciIHN0cm9rZS13aWR0aD0iMSI+PHBvbHlsaW5lIHBvaW50cz0iMTIgMiAyIDcgMTIgMTIgMjIgNyAxMiAyIiAvPjxwb2x5bGluZSBwb2ludHM9IjIgMTcgMTIgMjIgMjIgMTciIC8+PC9zdmc+'); background-blend-mode: overlay; background-size: cover, 60px; background-repeat: no-repeat; background-position: center;">
+        <span class="movie-rating"><i class="fas fa-star"></i> 7.9</span>
+      </div>
+      <div class="movie-info">
+        <h3>The Batman II</h3>
+        <div class="genre">Crime · Mystery</div>
+        <div class="movie-meta">
+          <span>2h 55m</span>
+          <span class="price">$14.00</span>
+        </div>
+      </div>
+    </div>
+    <!-- movie 5 -->
+    <div class="movie-card">
+      <div class="movie-poster" style="background-image: linear-gradient(135deg, #1e1e2a, #0e0e1a), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMSI+PHBvbHlsaW5lIHBvaW50cz0iMTIgMiAyIDcgMTIgMTIgMjIgNyAxMiAyIiAvPjwvc3ZnPg=='); background-blend-mode: overlay; background-size: cover, 60px; background-repeat: no-repeat; background-position: center;">
+        <span class="movie-rating"><i class="fas fa-star"></i> 8.5</span>
+      </div>
+      <div class="movie-info">
+        <h3>Inside Out 3</h3>
+        <div class="genre">Animation · Family</div>
+        <div class="movie-meta">
+          <span>1h 45m</span>
+          <span class="price">$11.50</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING CALL TO ACTION -->
+  <div class="booking-strip">
+    <div>
+      <h3>Ready for the big screen?</h3>
+      <p>Select your cinema, pick your seats, and get your e‑tickets instantly. No queues, no hassle.</p>
+    </div>
+    <button class="btn-primary">
+      <i class="fas fa-credit-card"></i> Book now
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>CinemaMax</h4>
+        <a href="#">About us</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Help center</a>
+        <a href="#">Contact</a>
+        <a href="#">Refund policy</a>
+        <a href="#">Gift cards</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Terms of service</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Cookie settings</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter / X</a>
+        <a href="#">YouTube</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 CinemaMax. All rights reserved.</span>
+      <div class="social-icons">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-x-twitter"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-facebook"></i>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
