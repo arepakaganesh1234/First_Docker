@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CinemaMax · movie tickets</title>
-  <!-- Google Fonts for a modern, clean look -->
+  <title>TinyTot · baby toys & play</title>
+  <!-- Google Fonts: Quicksand (rounded, friendly) + Inter for body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free icons) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -19,48 +19,54 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0b0d15;
-      color: #ffffff;
+      background-color: #fefcf9;
+      color: #2e2b3c;
       line-height: 1.5;
-      scroll-behavior: smooth;
     }
 
-    /* container utility */
+    /* ---------- UTILITIES ---------- */
     .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* ----- HEADER / NAV ----- */
+    /* ---------- HEADER ---------- */
     header {
-      padding: 20px 0;
+      padding: 18px 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 8px;
+      font-family: 'Quicksand', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       letter-spacing: -0.5px;
-      color: #fff;
+      color: #2e2b3c;
     }
 
     .logo i {
-      color: #ff3b5c;
-      font-size: 2rem;
+      color: #ff8a5c;
+      font-size: 2.2rem;
+    }
+
+    .logo span {
+      color: #ff8a5c;
     }
 
     .nav-links {
       display: flex;
       gap: 32px;
       font-weight: 500;
-      color: #b0b3c6;
+      color: #5f5b6b;
     }
 
     .nav-links a {
@@ -71,49 +77,72 @@
     }
 
     .nav-links a:hover {
-      color: #ffffff;
+      color: #ff8a5c;
     }
 
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
     }
 
     .header-actions i {
       font-size: 1.3rem;
-      color: #b0b3c6;
+      color: #5f5b6b;
       cursor: pointer;
       transition: color 0.2s;
     }
 
     .header-actions i:hover {
-      color: #ffffff;
+      color: #ff8a5c;
+    }
+
+    .cart-badge {
+      position: relative;
+    }
+
+    .cart-badge::after {
+      content: '3';
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: #ff8a5c;
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fefcf9;
     }
 
     .btn-outline {
       background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: white;
-      padding: 8px 18px;
+      border: 1.5px solid #ffe6d5;
+      color: #2e2b3c;
+      padding: 8px 22px;
       border-radius: 40px;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
     }
 
     .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.4);
+      background: #fff4ec;
+      border-color: #ff8a5c;
     }
 
-    /* ----- HERO SECTION ----- */
+    /* ---------- HERO ---------- */
     .hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 40px;
+      gap: 50px;
       padding: 60px 0 40px;
     }
 
@@ -122,38 +151,46 @@
     }
 
     .hero-badge {
-      display: inline-block;
-      background: rgba(255, 59, 92, 0.15);
-      color: #ff3b5c;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff1e8;
+      color: #d45a2e;
       font-size: 0.85rem;
       font-weight: 600;
-      padding: 6px 16px;
+      padding: 8px 20px;
       border-radius: 40px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       letter-spacing: 0.3px;
-      border: 1px solid rgba(255, 59, 92, 0.3);
+      border: 1px solid #ffe0d0;
+    }
+
+    .hero-badge i {
+      color: #ff8a5c;
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-family: 'Quicksand', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
       font-weight: 700;
       line-height: 1.2;
       letter-spacing: -1px;
       margin-bottom: 20px;
+      color: #2e2b3c;
     }
 
     .hero h1 span {
-      background: linear-gradient(135deg, #ff3b5c, #ff8a5c);
+      background: linear-gradient(135deg, #ff8a5c, #ffb347);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .hero p {
-      color: #9a9db0;
+      color: #6b677a;
       font-size: 1.15rem;
-      max-width: 500px;
-      margin-bottom: 32px;
+      max-width: 520px;
+      margin-bottom: 36px;
     }
 
     .hero-buttons {
@@ -163,292 +200,487 @@
     }
 
     .btn-primary {
-      background: #ff3b5c;
+      background: #ff8a5c;
       border: none;
       color: white;
-      padding: 14px 32px;
-      border-radius: 40px;
+      padding: 16px 36px;
+      border-radius: 50px;
       font-weight: 600;
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.2s, transform 0.1s;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      box-shadow: 0 8px 20px rgba(255, 59, 92, 0.25);
+      gap: 12px;
+      box-shadow: 0 12px 24px -8px rgba(255, 138, 92, 0.4);
+      font-family: 'Inter', sans-serif;
     }
 
     .btn-primary:hover {
-      background: #e62e4e;
+      background: #e6764a;
       transform: scale(1.02);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: white;
-      padding: 14px 32px;
-      border-radius: 40px;
-      font-weight: 500;
+      background: white;
+      border: 1.5px solid #f0e9e4;
+      color: #2e2b3c;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 600;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: background 0.2s, border-color 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      font-family: 'Inter', sans-serif;
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: #fdf8f4;
+      border-color: #ffc8a8;
     }
 
+    /* hero visual */
     .hero-visual {
-      flex: 1 1 300px;
+      flex: 1 1 380px;
       display: flex;
       justify-content: center;
       position: relative;
     }
 
-    .poster-stack {
+    .toy-stack {
       position: relative;
       width: 100%;
-      max-width: 360px;
-      height: 380px;
+      max-width: 420px;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .poster-card {
+    .toy-blob {
       position: absolute;
-      width: 220px;
-      height: 330px;
-      border-radius: 24px;
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 30%, #ffe8d9, #ffd9c4);
+      border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+      animation: blob 12s infinite alternate ease-in-out;
     }
 
-    .poster-card:nth-child(1) {
-      background-image: linear-gradient(135deg, #1e1e2f, #2a2a40), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMSI+PHJlY3QgeD0iMiIgeT0iNCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjE2IiByeD0iMiIgLz48cGF0aCBkPSJNOCA4aDh2OGwtNCA0LTQtNHoiIC8+PC9zdmc+');
-      background-blend-mode: overlay;
-      background-size: cover, 60px;
-      background-repeat: no-repeat;
-      background-position: center, center;
-      top: 0;
-      left: 0;
-      z-index: 3;
-      transform: rotate(-5deg);
+    @keyframes blob {
+      0% { border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%; }
+      50% { border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%; }
+      100% { border-radius: 50% 50% 60% 40% / 40% 50% 50% 60%; }
     }
 
-    .poster-card:nth-child(2) {
-      background-image: linear-gradient(135deg, #1f1a2e, #2f2540), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM5OTkiIHN0cm9rZS13aWR0aD0iMSI+PHBvbHlsaW5lIHBvaW50cz0iMTIgMiAyIDcgMTIgMTIgMjIgNyAxMiAyIiAvPjxwb2x5bGluZSBwb2ludHM9IjIgMTcgMTIgMjIgMjIgMTciIC8+PHBvbHlsaW5lIHBvaW50cz0iMiAxMiAxMiAxNyAyMiAxMiIgLz48L3N2Zz4=');
-      background-blend-mode: overlay;
-      background-size: cover, 60px;
-      background-repeat: no-repeat;
-      background-position: center, center;
-      top: 20px;
-      left: 70px;
+    .toy-illustration {
+      position: relative;
       z-index: 2;
-      transform: rotate(2deg);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
     }
 
-    .poster-card:nth-child(3) {
-      background-image: linear-gradient(135deg, #16212e, #1f2f3c), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMSI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIC8+PHBvbHlsaW5lIHBvaW50cz0iMTIgNiAxMiAxMiAxNiAxNCIgLz48L3N2Zz4=');
-      background-blend-mode: overlay;
-      background-size: cover, 60px;
-      background-repeat: no-repeat;
-      background-position: center, center;
-      top: 40px;
-      left: 140px;
-      z-index: 1;
-      transform: rotate(8deg);
+    .toy-icon {
+      background: white;
+      width: 90px;
+      height: 90px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      transition: transform 0.3s;
     }
 
-    /* ----- SECTION TITLE ----- */
+    .toy-icon:hover {
+      transform: translateY(-8px) rotate(3deg);
+    }
+
+    .toy-icon:nth-child(2) {
+      margin-top: -30px;
+    }
+
+    .toy-icon:nth-child(3) {
+      margin-top: 20px;
+    }
+
+    .toy-icon:nth-child(4) {
+      margin-top: -10px;
+    }
+
+    /* ---------- SECTION TITLE ---------- */
     .section-title {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin: 60px 0 28px;
+      margin: 60px 0 32px;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     .section-title h2 {
-      font-size: 1.9rem;
-      font-weight: 600;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
       letter-spacing: -0.5px;
+      color: #2e2b3c;
     }
 
     .section-title a {
-      color: #ff3b5c;
-      font-weight: 500;
+      color: #ff8a5c;
+      font-weight: 600;
       text-decoration: none;
       font-size: 0.95rem;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       transition: gap 0.2s;
     }
 
     .section-title a:hover {
-      gap: 10px;
+      gap: 12px;
     }
 
-    /* ----- MOVIE GRID ----- */
-    .movie-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 24px;
-      margin-bottom: 50px;
-    }
-
-    .movie-card {
-      background: #13161f;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      cursor: pointer;
-    }
-
-    .movie-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
-      border-color: rgba(255, 59, 92, 0.3);
-    }
-
-    .movie-poster {
-      aspect-ratio: 2 / 3;
-      background-size: cover;
-      background-position: center;
-      position: relative;
+    /* ---------- CATEGORY PILLS ---------- */
+    .category-pills {
       display: flex;
-      align-items: flex-end;
-      padding: 10px;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 0 0 40px;
     }
 
-    .movie-poster::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+    .pill {
+      background: white;
+      border: 1px solid #f0e9e4;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #5f5b6b;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .movie-rating {
+    .pill i {
+      color: #ff8a5c;
+    }
+
+    .pill:hover, .pill.active {
+      background: #ff8a5c;
+      border-color: #ff8a5c;
+      color: white;
+    }
+
+    .pill.active i, .pill:hover i {
+      color: white;
+    }
+
+    /* ---------- PRODUCT GRID ---------- */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid #f5eee9;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 40px -16px rgba(0, 0, 0, 0.1);
+      border-color: #ffe0d0;
+    }
+
+    .product-image {
+      aspect-ratio: 1 / 1;
+      background: #fdf8f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
       position: relative;
-      z-index: 2;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      padding: 4px 10px;
+      transition: background 0.2s;
+    }
+
+    .product-card:hover .product-image {
+      background: #fff4ec;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: white;
+      padding: 6px 16px;
       border-radius: 40px;
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
+      color: #d45a2e;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+      border: 1px solid #ffe6d5;
+      letter-spacing: 0.3px;
+    }
+
+    .product-badge.new {
+      background: #d4f0e8;
+      color: #1e7a5e;
+      border-color: #b8e6d9;
+    }
+
+    .wishlist-icon {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 4px;
-      color: #ffb800;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .movie-info {
-      padding: 16px;
-    }
-
-    .movie-info h3 {
+      justify-content: center;
+      color: #b0aab5;
       font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s;
+    }
+
+    .wishlist-icon:hover {
+      color: #ff8a5c;
+      transform: scale(1.1);
+    }
+
+    .product-info {
+      padding: 20px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-info h3 {
+      font-size: 1.05rem;
       font-weight: 600;
       margin-bottom: 6px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      color: #2e2b3c;
     }
 
-    .movie-info .genre {
-      color: #9a9db0;
+    .product-info .age {
       font-size: 0.8rem;
+      color: #9a94a6;
+      margin-bottom: 10px;
       display: flex;
+      align-items: center;
       gap: 6px;
-      flex-wrap: wrap;
     }
 
-    .movie-meta {
+    .product-info .age i {
+      color: #ff8a5c;
+      font-size: 0.75rem;
+    }
+
+    .product-meta {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 12px;
-      font-size: 0.8rem;
-      color: #9a9db0;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid #f5eee9;
     }
 
-    .movie-meta .price {
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
+    .price {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #2e2b3c;
     }
 
-    /* ----- BOOKING CTA STRIP ----- */
-    .booking-strip {
-      background: linear-gradient(90deg, #13161f 0%, #1a1e2b 100%);
-      border-radius: 28px;
-      padding: 40px 48px;
-      margin: 40px 0 70px;
+    .price small {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #9a94a6;
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
+    .add-btn {
+      background: #fff1e8;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff8a5c;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .add-btn:hover {
+      background: #ff8a5c;
+      color: white;
+      transform: rotate(90deg);
+    }
+
+    /* ---------- BRAND STRIP ---------- */
+    .brand-strip {
+      background: #fff8f3;
+      border-radius: 48px;
+      padding: 48px 40px;
+      margin: 50px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      gap: 30px;
+      border: 1px solid #ffe6d5;
+    }
+
+    .brand-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: #6b677a;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .brand-item i {
+      font-size: 2.2rem;
+      color: #ff8a5c;
+      opacity: 0.8;
+    }
+
+    /* ---------- NEWSLETTER ---------- */
+    .newsletter {
+      background: #2e2b3c;
+      border-radius: 48px;
+      padding: 56px 48px;
+      margin: 60px 0 40px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      gap: 32px;
+      color: white;
     }
 
-    .booking-strip h3 {
-      font-size: 1.7rem;
-      font-weight: 600;
+    .newsletter h3 {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
       letter-spacing: -0.5px;
       margin-bottom: 8px;
     }
 
-    .booking-strip p {
-      color: #9a9db0;
-      max-width: 450px;
+    .newsletter p {
+      color: #b0aab5;
+      max-width: 460px;
+      font-size: 1rem;
     }
 
-    .booking-strip .btn-primary {
-      padding: 16px 38px;
-      font-size: 1.05rem;
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .newsletter-form input {
+      padding: 16px 24px;
+      border-radius: 50px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      min-width: 260px;
+      font-family: 'Inter', sans-serif;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .newsletter-form input::placeholder {
+      color: #b0aab5;
+    }
+
+    .newsletter-form input:focus {
+      border-color: #ff8a5c;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .newsletter-form button {
+      background: #ff8a5c;
+      border: none;
+      color: white;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
       white-space: nowrap;
     }
 
-    /* ----- FOOTER ----- */
+    .newsletter-form button:hover {
+      background: #e6764a;
+    }
+
+    /* ---------- FOOTER ---------- */
     footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 40px 0;
-      color: #9a9db0;
+      border-top: 1px solid #f0e9e4;
+      padding: 48px 0 32px;
+      color: #6b677a;
       font-size: 0.9rem;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 30px;
-      margin-bottom: 40px;
+      gap: 40px;
+      margin-bottom: 48px;
     }
 
     .footer-col h4 {
-      color: #fff;
-      font-weight: 600;
-      margin-bottom: 18px;
+      color: #2e2b3c;
+      font-weight: 700;
+      margin-bottom: 20px;
       font-size: 1rem;
+      font-family: 'Quicksand', sans-serif;
     }
 
     .footer-col a {
       display: block;
-      color: #9a9db0;
+      color: #6b677a;
       text-decoration: none;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       transition: color 0.2s;
     }
 
     .footer-col a:hover {
-      color: #ff3b5c;
+      color: #ff8a5c;
     }
 
     .footer-bottom {
@@ -456,14 +688,16 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 32px;
+      border-top: 1px solid #f0e9e4;
+      gap: 20px;
     }
 
     .social-icons {
       display: flex;
-      gap: 20px;
-      font-size: 1.2rem;
+      gap: 24px;
+      font-size: 1.3rem;
+      color: #b0aab5;
     }
 
     .social-icons i {
@@ -472,32 +706,61 @@
     }
 
     .social-icons i:hover {
-      color: #ff3b5c;
+      color: #ff8a5c;
     }
 
-    /* responsive touches */
-    @media (max-width: 700px) {
-      .header-actions .btn-outline {
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 800px) {
+      .nav-links {
         display: none;
       }
-      .nav-links {
+      .header-actions .btn-outline {
         display: none;
       }
       .hero {
         padding: 30px 0;
       }
-      .booking-strip {
-        padding: 30px 24px;
+      .newsletter {
+        padding: 40px 28px;
         flex-direction: column;
         align-items: flex-start;
-        gap: 24px;
       }
-      .booking-strip .btn-primary {
+      .newsletter-form {
+        width: 100%;
+      }
+      .newsletter-form input {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .product-info {
+        padding: 14px;
+      }
+      .product-info h3 {
+        font-size: 0.9rem;
+      }
+      .price {
+        font-size: 1.1rem;
+      }
+      .brand-strip {
+        padding: 32px 20px;
+      }
+      .hero-buttons .btn-primary,
+      .hero-buttons .btn-secondary {
         width: 100%;
         justify-content: center;
       }
-      .section-title h2 {
-        font-size: 1.5rem;
+    }
+
+    @media (max-width: 380px) {
+      .product-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -508,179 +771,245 @@
   <!-- HEADER -->
   <header>
     <div class="logo">
-      <i class="fas fa-film"></i> CinemaMax
+      <i class="fas fa-baby"></i> Tiny<span>Tot</span>
     </div>
     <div class="nav-links">
-      <a href="#">Movies</a>
-      <a href="#">Cinemas</a>
-      <a href="#">Offers</a>
-      <a href="#">Support</a>
+      <a href="#">Shop</a>
+      <a href="#">New</a>
+      <a href="#">Best Sellers</a>
+      <a href="#">Ages</a>
+      <a href="#">Sale</a>
     </div>
     <div class="header-actions">
       <i class="fas fa-search"></i>
       <i class="fas fa-user-circle"></i>
+      <i class="fas fa-shopping-bag cart-badge"></i>
       <button class="btn-outline">Sign in</button>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <div class="hero-badge">
-        <i class="fas fa-ticket-alt" style="margin-right: 6px;"></i> Now booking · Summer 2025
+        <i class="fas fa-star"></i> Newborn – 4 years
       </div>
       <h1>
-        Book your <span>movie night</span> in seconds.
+        Safe, soft & <span>silly</span> toys for tiny hands.
       </h1>
       <p>
-        Skip the line. Choose your seats, grab tickets, and get instant confirmation — all from one place.
+        Discover a world of sensory play, wooden classics, and cuddly friends — all tested for safety and designed to grow with your baby.
       </p>
       <div class="hero-buttons">
         <button class="btn-primary">
-          <i class="fas fa-ticket-alt"></i> Book tickets
+          <i class="fas fa-bag-shopping"></i> Shop toys
         </button>
         <button class="btn-secondary">
-          <i class="fas fa-play-circle"></i> Watch trailer
+          <i class="fas fa-gift"></i> Gift guide
         </button>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="poster-stack">
-        <div class="poster-card"></div>
-        <div class="poster-card"></div>
-        <div class="poster-card"></div>
+      <div class="toy-stack">
+        <div class="toy-blob"></div>
+        <div class="toy-illustration">
+          <div class="toy-icon"><i class="fas fa-cube" style="color:#ff8a5c;"></i></div>
+          <div class="toy-icon"><i class="fas fa-shapes" style="color:#ffb347;"></i></div>
+          <div class="toy-icon"><i class="fas fa-puzzle-piece" style="color:#8ecae6;"></i></div>
+          <div class="toy-icon"><i class="fas fa-cloud" style="color:#b8e6d9;"></i></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- NOW SHOWING SECTION -->
+  <!-- CATEGORY PILLS -->
+  <div class="category-pills">
+    <div class="pill active"><i class="fas fa-allergies"></i> All toys</div>
+    <div class="pill"><i class="fas fa-cubes"></i> Wooden</div>
+    <div class="pill"><i class="fas fa-cloud"></i> Plush</div>
+    <div class="pill"><i class="fas fa-music"></i> Musical</div>
+    <div class="pill"><i class="fas fa-paint-brush"></i> Sensory</div>
+    <div class="pill"><i class="fas fa-bath"></i> Bath toys</div>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
   <div class="section-title">
-    <h2>Now showing</h2>
+    <h2>Loved by little ones</h2>
     <a href="#">View all <i class="fas fa-arrow-right"></i></a>
   </div>
 
-  <div class="movie-grid">
-    <!-- movie 1 -->
-    <div class="movie-card">
-      <div class="movie-poster" style="background-image: linear-gradient(135deg, #1e2a3a, #0f1a28), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM0NDQiIHN0cm9rZS13aWR0aD0iMSI+PHBvbHlsaW5lIHBvaW50cz0iMTIgMiAyIDcgMTIgMTIgMjIgNyAxMiAyIiAvPjxwb2x5bGluZSBwb2ludHM9IjIgMTcgMTIgMjIgMjIgMTciIC8+PHBvbHlsaW5lIHBvaW50cz0iMiAxMiAxMiAxNyAyMiAxMiIgLz48L3N2Zz4='); background-blend-mode: overlay; background-size: cover, 60px; background-repeat: no-repeat; background-position: center;">
-        <span class="movie-rating"><i class="fas fa-star"></i> 8.7</span>
+  <div class="product-grid">
+    <!-- product 1 -->
+    <div class="product-card">
+      <div class="product-image">
+        <span style="font-size:4.5rem;">🧸</span>
+        <span class="product-badge">Bestseller</span>
+        <div class="wishlist-icon"><i class="far fa-heart"></i></div>
       </div>
-      <div class="movie-info">
-        <h3>Dune: Part Three</h3>
-        <div class="genre">Sci-Fi · Adventure</div>
-        <div class="movie-meta">
-          <span>2h 45m</span>
-          <span class="price">$14.50</span>
+      <div class="product-info">
+        <h3>Organic Cotton Teddy</h3>
+        <div class="age"><i class="fas fa-child"></i> 0+ months</div>
+        <div class="product-meta">
+          <div class="price">$34.00 <small>$42.00</small></div>
+          <button class="add-btn"><i class="fas fa-plus"></i></button>
         </div>
       </div>
     </div>
-    <!-- movie 2 -->
-    <div class="movie-card">
-      <div class="movie-poster" style="background-image: linear-gradient(135deg, #2a1e2e, #1a101c), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMSI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIC8+PHBvbHlsaW5lIHBvaW50cz0iMTIgNiAxMiAxMiAxNiAxNCIgLz48L3N2Zz4='); background-blend-mode: overlay; background-size: cover, 60px; background-repeat: no-repeat; background-position: center;">
-        <span class="movie-rating"><i class="fas fa-star"></i> 9.1</span>
+    <!-- product 2 -->
+    <div class="product-card">
+      <div class="product-image">
+        <span style="font-size:4.5rem;">🪀</span>
+        <span class="product-badge new">New</span>
+        <div class="wishlist-icon"><i class="far fa-heart"></i></div>
       </div>
-      <div class="movie-info">
-        <h3>Oppenheimer</h3>
-        <div class="genre">Drama · History</div>
-        <div class="movie-meta">
-          <span>3h 0m</span>
-          <span class="price">$13.00</span>
+      <div class="product-info">
+        <h3>Wooden Rainbow Stacker</h3>
+        <div class="age"><i class="fas fa-child"></i> 12+ months</div>
+        <div class="product-meta">
+          <div class="price">$28.50</div>
+          <button class="add-btn"><i class="fas fa-plus"></i></button>
         </div>
       </div>
     </div>
-    <!-- movie 3 -->
-    <div class="movie-card">
-      <div class="movie-poster" style="background-image: linear-gradient(135deg, #1e2f2a, #0f1f1a), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM1NTUiIHN0cm9rZS13aWR0aD0iMSI+PHBhdGggZD0iTTEyIDJMMiA3bDEwIDUgMTAtNS0xMC01eiIgLz48cGF0aCBkPSJNMiAxN2wxMCA1IDEwLTUiIC8+PHBhdGggZD0iTTIgMTJsMTAgNSAxMC01IiAvPjwvc3ZnPg=='); background-blend-mode: overlay; background-size: cover, 60px; background-repeat: no-repeat; background-position: center;">
-        <span class="movie-rating"><i class="fas fa-star"></i> 8.2</span>
+    <!-- product 3 -->
+    <div class="product-card">
+      <div class="product-image">
+        <span style="font-size:4.5rem;">🎵</span>
+        <div class="wishlist-icon"><i class="far fa-heart"></i></div>
       </div>
-      <div class="movie-info">
-        <h3>Spider-Man 4</h3>
-        <div class="genre">Action · Fantasy</div>
-        <div class="movie-meta">
-          <span>2h 15m</span>
-          <span class="price">$15.00</span>
+      <div class="product-info">
+        <h3>Musical Owl Nightlight</h3>
+        <div class="age"><i class="fas fa-child"></i> 6+ months</div>
+        <div class="product-meta">
+          <div class="price">$39.90</div>
+          <button class="add-btn"><i class="fas fa-plus"></i></button>
         </div>
       </div>
     </div>
-    <!-- movie 4 -->
-    <div class="movie-card">
-      <div class="movie-poster" style="background-image: linear-gradient(135deg, #2a1e1e, #1a1010), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM3NzciIHN0cm9rZS13aWR0aD0iMSI+PHBvbHlsaW5lIHBvaW50cz0iMTIgMiAyIDcgMTIgMTIgMjIgNyAxMiAyIiAvPjxwb2x5bGluZSBwb2ludHM9IjIgMTcgMTIgMjIgMjIgMTciIC8+PC9zdmc+'); background-blend-mode: overlay; background-size: cover, 60px; background-repeat: no-repeat; background-position: center;">
-        <span class="movie-rating"><i class="fas fa-star"></i> 7.9</span>
+    <!-- product 4 -->
+    <div class="product-card">
+      <div class="product-image">
+        <span style="font-size:4.5rem;">🧩</span>
+        <span class="product-badge">Bestseller</span>
+        <div class="wishlist-icon"><i class="far fa-heart"></i></div>
       </div>
-      <div class="movie-info">
-        <h3>The Batman II</h3>
-        <div class="genre">Crime · Mystery</div>
-        <div class="movie-meta">
-          <span>2h 55m</span>
-          <span class="price">$14.00</span>
+      <div class="product-info">
+        <h3>Animal Puzzle Set</h3>
+        <div class="age"><i class="fas fa-child"></i> 18+ months</div>
+        <div class="product-meta">
+          <div class="price">$22.00 <small>$27.00</small></div>
+          <button class="add-btn"><i class="fas fa-plus"></i></button>
         </div>
       </div>
     </div>
-    <!-- movie 5 -->
-    <div class="movie-card">
-      <div class="movie-poster" style="background-image: linear-gradient(135deg, #1e1e2a, #0e0e1a), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM2NjYiIHN0cm9rZS13aWR0aD0iMSI+PHBvbHlsaW5lIHBvaW50cz0iMTIgMiAyIDcgMTIgMTIgMjIgNyAxMiAyIiAvPjwvc3ZnPg=='); background-blend-mode: overlay; background-size: cover, 60px; background-repeat: no-repeat; background-position: center;">
-        <span class="movie-rating"><i class="fas fa-star"></i> 8.5</span>
+    <!-- product 5 -->
+    <div class="product-card">
+      <div class="product-image">
+        <span style="font-size:4.5rem;">🦆</span>
+        <span class="product-badge new">New</span>
+        <div class="wishlist-icon"><i class="far fa-heart"></i></div>
       </div>
-      <div class="movie-info">
-        <h3>Inside Out 3</h3>
-        <div class="genre">Animation · Family</div>
-        <div class="movie-meta">
-          <span>1h 45m</span>
-          <span class="price">$11.50</span>
+      <div class="product-info">
+        <h3>Bath Duck Family</h3>
+        <div class="age"><i class="fas fa-child"></i> 6+ months</div>
+        <div class="product-meta">
+          <div class="price">$16.50</div>
+          <button class="add-btn"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+    </div>
+    <!-- product 6 -->
+    <div class="product-card">
+      <div class="product-image">
+        <span style="font-size:4.5rem;">🌈</span>
+        <div class="wishlist-icon"><i class="far fa-heart"></i></div>
+      </div>
+      <div class="product-info">
+        <h3>Sensory Ribbon Ring</h3>
+        <div class="age"><i class="fas fa-child"></i> 3+ months</div>
+        <div class="product-meta">
+          <div class="price">$19.90</div>
+          <button class="add-btn"><i class="fas fa-plus"></i></button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- BOOKING CALL TO ACTION -->
-  <div class="booking-strip">
-    <div>
-      <h3>Ready for the big screen?</h3>
-      <p>Select your cinema, pick your seats, and get your e‑tickets instantly. No queues, no hassle.</p>
+  <!-- BRAND VALUES STRIP -->
+  <div class="brand-strip">
+    <div class="brand-item">
+      <i class="fas fa-shield-heart"></i>
+      <span>Non-toxic materials</span>
     </div>
-    <button class="btn-primary">
-      <i class="fas fa-credit-card"></i> Book now
-    </button>
+    <div class="brand-item">
+      <i class="fas fa-truck-fast"></i>
+      <span>Free shipping $50+</span>
+    </div>
+    <div class="brand-item">
+      <i class="fas fa-rotate-left"></i>
+      <span>30-day returns</span>
+    </div>
+    <div class="brand-item">
+      <i class="fas fa-leaf"></i>
+      <span>Eco-friendly packaging</span>
+    </div>
+    <div class="brand-item">
+      <i class="fas fa-hand-holding-heart"></i>
+      <span>Designed with love</span>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter">
+    <div>
+      <h3>Join the TinyTot family</h3>
+      <p>Get 10% off your first order, plus play ideas and exclusive offers — straight to your inbox.</p>
+    </div>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks for subscribing! 🧸');">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
   </div>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>CinemaMax</h4>
-        <a href="#">About us</a>
-        <a href="#">Careers</a>
-        <a href="#">Press</a>
+        <h4>TinyTot</h4>
+        <a href="#">Our story</a>
+        <a href="#">Safety standards</a>
         <a href="#">Blog</a>
+        <a href="#">Careers</a>
       </div>
       <div class="footer-col">
-        <h4>Support</h4>
-        <a href="#">Help center</a>
-        <a href="#">Contact</a>
-        <a href="#">Refund policy</a>
-        <a href="#">Gift cards</a>
+        <h4>Shop</h4>
+        <a href="#">New arrivals</a>
+        <a href="#">Best sellers</a>
+        <a href="#">Wooden toys</a>
+        <a href="#">Plush & cuddly</a>
       </div>
       <div class="footer-col">
-        <h4>Legal</h4>
-        <a href="#">Terms of service</a>
-        <a href="#">Privacy policy</a>
-        <a href="#">Cookie settings</a>
+        <h4>Help</h4>
+        <a href="#">Shipping info</a>
+        <a href="#">Returns</a>
+        <a href="#">Contact us</a>
+        <a href="#">FAQ</a>
       </div>
       <div class="footer-col">
         <h4>Follow</h4>
         <a href="#">Instagram</a>
-        <a href="#">Twitter / X</a>
-        <a href="#">YouTube</a>
+        <a href="#">Pinterest</a>
         <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 CinemaMax. All rights reserved.</span>
+      <span>© 2025 TinyTot. All rights reserved. Play safe. 💛</span>
       <div class="social-icons">
         <i class="fab fa-instagram"></i>
-        <i class="fab fa-x-twitter"></i>
-        <i class="fab fa-youtube"></i>
+        <i class="fab fa-pinterest"></i>
         <i class="fab fa-facebook"></i>
+        <i class="fab fa-youtube"></i>
       </div>
     </div>
   </footer>
